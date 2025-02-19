@@ -1,0 +1,20 @@
+<ul id="task-list">
+    {% for tarea in tareas %}
+        <li id="task-item-{{ tarea.id }}">
+            <span {% if tarea.completada %}class="completed"{% endif %}>{{ tarea.titulo }}</span>
+            <input type="checkbox" {% if tarea.completada %}checked{% endif %}
+                   hx-put="/tareas/{{ tarea.id }}"
+                   hx-vals='{"completada": this.checked}'
+                   hx-target="#task-list-container"
+                   hx-swap="innerHTML"
+                   >
+            <button hx-delete="/tareas/{{ tarea.id }}"
+                    hx-target="#task-list-container"
+                    hx-swap="innerHTML"
+                    hx-confirm="¿Seguro que quieres borrar esta tarea?">Borrar</button>
+            <button hx-get="/tareas/{{ tarea.id }}/edit"
+                    hx-target="#task-item-{{ tarea.id }}"
+                    hx-swap="outerHTML">Editar</button>
+        </li>
+    {% endfor %}
+</ul>

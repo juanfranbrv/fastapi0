@@ -1,0 +1,68 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#task-list li:last-child {
+    border-bottom: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button[hx-delete] {
+    background-color: #dc3545;
+}
+
+button[hx-delete]:hover {
+    background-color: #c82333;
+}
+
+button[type="button"] { /* Botón Cancelar en formulario de edición */
+    background-color: gray;
+}
+
+button[type="button"]:hover {
+    background-color: darkgray;
+}

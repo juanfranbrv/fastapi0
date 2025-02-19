@@ -1,0 +1,7 @@
+<form hx-put="/tareas/{{ tarea.id }}"
+      hx-target="#task-item-{{ tarea.id }}"
+      hx-swap="outerHTML">
+    <input type="text" name="titulo" value="{{ tarea.titulo }}" required>
+    <button type="submit">Guardar</button>
+    <button type="button" hx-get="/tareas" hx-target="#task-list-container" hx-swap="innerHTML">Cancelar</button>
+</form>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestor de Tareas con FastAPI y htmx</title>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tareas</h1>
+
+        <div id="task-list-container" hx-get="/tareas" hx-trigger="load">
+            <!-- La lista de tareas se cargará aquí -->
+        </div>
+
+        <h2>Añadir Nueva Tarea</h2>
+        <form hx-post="/tareas" hx-target="#task-list-container" hx-swap="innerHTML">
+            <input type="text" name="titulo" placeholder="Título de la tarea" required>
+            <button type="submit">Añadir Tarea</button>
+        </form>
+    </div>
+</body>
+</html>
